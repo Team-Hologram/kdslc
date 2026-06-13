@@ -34,16 +34,6 @@
     "eslint-config-next": "16.2.7",
     "typescript": "^5"
   },
-  /*
-   * Configure the browsers we target when compiling the application. Without a
-   * `browserslist` field, Next.js defaults to modern browsers, which can
-   * exclude legacy Safari releases. iOS devices running versions prior to
-   * iOS 16 may lack support for features like optional chaining and class
-   * fields. The following list ensures code is compiled down for Safari 12+
-   * and iOS Safari 12+, while still supporting a broad range of browsers
-   * worldwide. See the Next.js documentation for details on polyfills and
-   * supported browsers【754415679369115†L552-L573】.
-   */
   "browserslist": [
     "last 2 versions",
     ">= 0.5%",
