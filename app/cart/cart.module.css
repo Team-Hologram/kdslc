@@ -1,0 +1,512 @@
+.main {
+  background: #FAFAF8;
+  min-height: 100vh;
+  padding-top: 110px;
+  padding-bottom: 80px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.backLink {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(17, 17, 17, 0.45);
+  transition: color 0.3s ease;
+  margin-right: auto;
+}
+
+.backLink:hover { color: #1ECFC8; }
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  color: #111111;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.count {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.35);
+  padding: 5px 14px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 100px;
+}
+
+/* Empty State */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 20px;
+  padding: 80px 24px;
+  min-height: 50vh;
+}
+
+.emptyIcon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  color: rgba(17, 17, 17, 0.25);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.emptyTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.emptyText {
+  font-size: 14px;
+  color: rgba(17, 17, 17, 0.4);
+  font-weight: 300;
+  max-width: 300px;
+}
+
+/* Layout */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Items */
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.cartItem {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 0.3s ease;
+}
+
+.cartItem:last-child { border-bottom: none; }
+
+.cartItem:hover { background: rgba(255, 255, 255, 0.5); }
+
+.itemImage {
+  position: relative;
+  width: 90px;
+  height: 110px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #dedad5;
+  flex-shrink: 0;
+}
+
+.itemImg { object-fit: cover; }
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.itemTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.itemCategory {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1ECFC8;
+  margin-bottom: 4px;
+}
+
+.itemName {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.itemName:hover { color: #1ECFC8; }
+
+.itemMeta {
+  display: flex;
+  gap: 14px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: rgba(17, 17, 17, 0.4);
+}
+
+.removeBtn {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+  color: rgba(17, 17, 17, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.removeBtn:hover {
+  background: rgba(255, 80, 80, 0.06);
+  border-color: rgba(255, 80, 80, 0.2);
+  color: #ff4444;
+}
+
+.itemBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qtyControl {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.qtyBtn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(17, 17, 17, 0.5);
+  transition: all 0.3s ease;
+}
+
+.qtyBtn:hover { color: #111111; background: rgba(0, 0, 0, 0.04); }
+
+.qtyNum {
+  width: 40px;
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+  border-left: 1px solid rgba(0, 0, 0, 0.06);
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  line-height: 34px;
+}
+
+.itemPrice {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Summary */
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07);
+  position: sticky;
+  top: 110px;
+}
+
+.summaryTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.summaryLines {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.summaryLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  color: rgba(17, 17, 17, 0.55);
+}
+
+.free { color: #1ECFC8; font-weight: 600; }
+
+.shippingNote {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(17, 17, 17, 0.35);
+  padding: 8px 12px;
+  background: rgba(30, 207, 200, 0.06);
+  border: 1px solid rgba(30, 207, 200, 0.12);
+  border-radius: 8px;
+}
+
+.totalLine {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.paymentIcons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.payLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  color: rgba(17, 17, 17, 0.3);
+  letter-spacing: 0.06em;
+}
+
+.payBadges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.payBadge {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  color: rgba(17, 17, 17, 0.4);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .summary { position: static; }
+}
+
+@media (max-width: 640px) {
+  .main { padding-top: 82px; padding-bottom: 48px; }
+  .header { margin-bottom: 20px; gap: 12px; }
+  .title { font-size: clamp(22px, 6vw, 36px); }
+  .cartItem { gap: 12px; padding: 16px; }
+  .itemImage { width: 68px; height: 84px; border-radius: 10px; }
+  .itemName { font-size: 14px; }
+  .summary { padding: 20px; border-radius: 18px; }
+  .summaryTitle { font-size: 18px; }
+}
+
+/* ── Promo code section ── */
+.promoSection {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  margin-bottom: 14px;
+}
+
+.promoLabel {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(17,17,17,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.promoRow {
+  display: flex;
+  gap: 8px;
+}
+
+.promoInput {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  background: rgba(0,0,0,0.02);
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.promoInput:focus {
+  border-color: #1ECFC8;
+}
+
+.promoBtn {
+  height: 40px;
+  padding: 0 16px;
+  background: #111111;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.promoBtn:hover:not(:disabled) { background: #1ECFC8; }
+.promoBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.promoError {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: #e53e3e;
+  margin-top: 6px;
+}
+
+.promoApplied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(30,207,200,0.08);
+  border: 1.5px solid rgba(30,207,200,0.25);
+  border-radius: 10px;
+}
+
+.promoAppliedInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.promoCheck { color: #1ECFC8; }
+
+.promoCode {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: 0.05em;
+}
+
+.promoSaving {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: #1ECFC8;
+  font-weight: 600;
+}
+
+.promoRemoveBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(17,17,17,0.35);
+  padding: 4px;
+  transition: color 0.2s;
+}
+
+.promoRemoveBtn:hover { color: #e53e3e; }
+
+/* ── Discount line in summary ── */
+.discountLine span { color: #1ECFC8; font-weight: 700; }
+
+/* ── Item sale badge ── */
+.itemSaleBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1ECFC8;
+}
+
+.itemSaleOrig {
+  font-weight: 400;
+  color: rgba(17,17,17,0.35);
+  text-decoration: line-through;
+}
+
+/* ── Spin animation ── */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

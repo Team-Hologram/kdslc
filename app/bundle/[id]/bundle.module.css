@@ -1,0 +1,456 @@
+/* ── Bundle Detail Page ── */
+
+.main {
+  min-height: 100vh;
+  padding-bottom: 80px;
+  background: #fafafa;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0 60px;
+  background: linear-gradient(135deg, #0d0d1a 0%, #111128 50%, #0d1a1a 100%);
+  margin-bottom: 60px;
+}
+
+.heroBg {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 80% 50%, rgba(139,61,255,0.18), transparent),
+    radial-gradient(ellipse 40% 50% at 20% 60%, rgba(30,207,200,0.12), transparent);
+  pointer-events: none;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 36px;
+  transition: color 0.2s;
+}
+.backLink:hover { color: #fff; }
+
+.heroContent { max-width: 760px; }
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 100px;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.limitedBadge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 10px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 100px;
+  color: rgba(255,255,255,0.65);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.heroTitle {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 400;
+  color: white;
+  line-height: 1.1;
+  margin: 0 0 10px;
+}
+
+.heroDesc {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+/* ── Bundle Price Summary Card ── */
+.priceSummaryCard {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  min-width: 280px;
+}
+
+.priceSummaryRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.priceSummaryLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.priceSummaryValue {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: white;
+}
+
+.priceSummarySaving {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+.priceSummaryOrig {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+}
+
+.priceSummaryNote {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ── Skeleton ── */
+.skeleton { max-width: 1200px; margin: 120px auto; padding: 0 24px; }
+.skeletonTitle { height: 40px; background: rgba(0,0,0,0.07); border-radius: 8px; width: 40%; margin-bottom: 40px; }
+.skeletonGrid { height: 300px; background: rgba(0,0,0,0.07); border-radius: 16px; }
+
+/* ── Section ── */
+.section { margin-bottom: 60px; }
+
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.sectionTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.addAllBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.2s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.addAllBtn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+.addAllBtn:active { transform: scale(0.97); }
+
+/* ── Products Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.card:hover { box-shadow: 0 10px 36px rgba(0,0,0,0.12); transform: translateY(-3px); }
+
+.imgWrap {
+  position: relative;
+  aspect-ratio: 4/3;
+  display: block;
+  overflow: hidden;
+}
+
+@supports not (aspect-ratio: 4 / 3) {
+  .imgWrap::before {
+    content: '';
+    display: block;
+    padding-top: 75%;
+  }
+}
+
+.img { object-fit: cover; transition: transform 0.4s ease; }
+.card:hover .img { transform: scale(1.04); }
+
+.tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 10px;
+  background: #111111;
+  color: white;
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.discBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 10px;
+  border-radius: 100px;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.info { padding: 20px; }
+
+.category {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(17,17,17,0.38);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+.name:hover { color: #1ECFC8; }
+
+.desc {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: rgba(17,17,17,0.45);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+/* ── Price ── */
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.price { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 800; color: #111111; }
+.priceSale { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 800; color: #1ECFC8; }
+.priceOrig { font-family: 'Space Grotesk', sans-serif; font-size: 13px; color: rgba(17,17,17,0.35); text-decoration: line-through; }
+
+/* ── Option groups ── */
+.optionGroup { margin-bottom: 14px; }
+
+.optionLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(17,17,17,0.55);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.optionVal { font-weight: 700; color: #111111; }
+
+/* Color swatches */
+.colorSwatches { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+  outline: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.swatch:hover { transform: scale(1.12); }
+.swatchActive { border-color: #111111; transform: scale(1.08); box-shadow: 0 0 0 3px rgba(17,17,17,0.15); }
+.swatchLight { box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), 0 1px 4px rgba(0,0,0,0.1); }
+
+/* Size buttons */
+.sizeGrid { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.sizeBtn {
+  height: 32px;
+  padding: 0 12px;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  background: transparent;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(17,17,17,0.6);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.sizeBtn:hover { border-color: rgba(0,0,0,0.3); color: #111111; }
+.sizeBtnActive { background: rgba(30,207,200,0.06); font-weight: 800; }
+
+.selectionError {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: #e53e3e;
+  margin-top: 4px;
+}
+
+/* ── Card Actions ── */
+.cardActions { display: flex; gap: 8px; margin-top: 4px; }
+
+.addBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 40px;
+  border: 1.5px solid;
+  border-radius: 100px;
+  background: transparent;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.addBtn:hover { transform: translateY(-1px); }
+.addedBtn {
+  background: rgba(30,207,200,0.1) !important;
+  border-color: #1ECFC8 !important;
+  color: #1ECFC8 !important;
+}
+
+.viewBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  height: 40px;
+  background: #111111;
+  color: white;
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.viewBtn:hover { background: #1ECFC8; }
+
+/* ── CTA Bar ── */
+.ctaBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px 40px;
+  background: linear-gradient(135deg, #111111, #1a1a2e);
+  border-radius: 20px;
+  flex-wrap: wrap;
+}
+
+.ctaTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.ctaSub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.ctaBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 100px;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.ctaBtn:hover { filter: brightness(1.1); transform: translateY(-2px); }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .hero { padding: 90px 0 40px; }
+  .priceSummaryCard { min-width: unset; width: 100%; }
+  .grid { grid-template-columns: 1fr; }
+  .ctaBar { flex-direction: column; align-items: flex-start; padding: 24px; }
+  .sectionHead { flex-direction: column; align-items: flex-start; }
+  .addAllBtn { width: 100%; justify-content: center; }
+}

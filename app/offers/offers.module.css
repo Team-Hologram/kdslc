@@ -1,0 +1,730 @@
+/* ================================================================
+   Offers Page — offers.module.css
+================================================================ */
+
+.main {
+  min-height: 100vh;
+  background: #f8f6f3;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  padding: 140px 0 80px;
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+.heroGlow {
+  position: absolute;
+  top: -80px;
+  left: 15%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30, 207, 200, 0.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroGlow2 {
+  position: absolute;
+  top: 40px;
+  right: 10%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 61, 255, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroInner {
+  max-width: 680px;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background: rgba(30, 207, 200, 0.12);
+  border: 1px solid rgba(30, 207, 200, 0.25);
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1ECFC8;
+  margin-bottom: 24px;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.05;
+  margin: 0 0 20px;
+}
+
+.heroAccent {
+  font-style: italic;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 0 36px;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.heroSecondary {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.heroSecondary:hover { color: #1ECFC8; }
+
+/* ── Urgency strip ── */
+.urgencyStrip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, rgba(30, 207, 200, 0.08), rgba(139, 61, 255, 0.08));
+  border: 1px solid rgba(30, 207, 200, 0.18);
+  border-radius: 16px;
+  margin: 28px 0 0;
+  flex-wrap: wrap;
+}
+
+.urgencyIcon { color: #f59e0b; flex-shrink: 0; }
+
+.urgencyText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111111;
+  flex: 1;
+  min-width: 120px;
+}
+
+.urgencyCounts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.urgencyUnit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #111111;
+  border-radius: 8px;
+  padding: 5px 10px;
+  min-width: 44px;
+}
+
+.urgencyNum {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+
+.urgencyLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.urgencyBadge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #16a34a;
+  white-space: nowrap;
+}
+
+/* ── Section layout ── */
+.section {
+  padding: 56px 0 0;
+}
+
+.sectionHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  gap: 16px;
+}
+
+.sectionTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0 0 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionSub {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.4);
+  margin: 0;
+}
+
+/* ── Coupon cards ── */
+.couponGrid {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 12px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.couponGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.couponCard {
+  flex-shrink: 0;
+  width: 85vw;
+  max-width: 340px;
+  scroll-snap-align: start;
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.couponCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    rgba(255, 255, 255, 0.03) 8px,
+    rgba(255, 255, 255, 0.03) 9px
+  );
+}
+
+.couponTeal {
+  background: linear-gradient(135deg, #0d2d2c, #1a4a47);
+  border: 1px solid rgba(30, 207, 200, 0.2);
+}
+
+.couponPurple {
+  background: linear-gradient(135deg, #1a0d2e, #2d1a52);
+  border: 1px solid rgba(139, 61, 255, 0.2);
+}
+
+.couponAmber {
+  background: linear-gradient(135deg, #2a1f00, #4a3600);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.couponLabel {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.couponDesc {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 18px;
+  line-height: 1.5;
+  position: relative;
+}
+
+.couponRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.couponCode {
+  flex: 1;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.copyBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.copyBtn:hover { background: rgba(255, 255, 255, 0.2); }
+
+/* ── Bundle cards ── */
+.bundleGrid {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 16px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.bundleGrid::-webkit-scrollbar {
+  display: none;
+}
+
+.bundleCard {
+  flex-shrink: 0;
+  width: 90vw;
+  max-width: 580px;
+  scroll-snap-align: center;
+  border-radius: 24px;
+  padding: 28px;
+  display: flex;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Carousel Controls ── */
+.carouselControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carouselArrow {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  color: #111111;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.carouselArrow:hover {
+  background: #fcfcfc;
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.carouselArrow:active {
+  transform: translateY(0);
+}
+
+.bundleTeal {
+  background: linear-gradient(135deg, rgba(30, 207, 200, 0.08), rgba(30, 207, 200, 0.04));
+  border: 1px solid rgba(30, 207, 200, 0.18);
+}
+
+.bundlePurple {
+  background: linear-gradient(135deg, rgba(139, 61, 255, 0.08), rgba(139, 61, 255, 0.04));
+  border: 1px solid rgba(139, 61, 255, 0.18);
+}
+
+.bundleBadge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 10px;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.bundleImages {
+  display: flex;
+  gap: -12px;
+  flex-shrink: 0;
+}
+
+.bundleImgWrap {
+  width: 80px;
+  height: 96px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bundleImgWrap:nth-child(2) { margin-left: -16px; }
+
+.bundleImg { object-fit: cover; }
+
+.bundleInfo { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+
+.bundleTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.bundleDesc {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: rgba(17, 17, 17, 0.5);
+  margin: 0;
+}
+
+.bundleSaving {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #16a34a;
+  background: rgba(34, 197, 94, 0.08);
+  border-radius: 6px;
+  padding: 3px 8px;
+  width: fit-content;
+}
+
+.bundleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  background: #111111;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  width: fit-content;
+  margin-top: 4px;
+  transition: all 0.2s ease;
+}
+
+.bundleBtn:hover { background: #1ECFC8; }
+
+/* ── Sale products grid ── */
+.saleGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.saleCard {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.saleCard:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.saleImgWrap {
+  display: block;
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #f0ede8;
+}
+
+@supports not (aspect-ratio: 3 / 4) {
+  .saleImgWrap::before {
+    content: '';
+    display: block;
+    padding-top: 133.333%;
+  }
+}
+
+.saleImg { object-fit: cover; transition: transform 0.4s ease; }
+.saleCard:hover .saleImg { transform: scale(1.05); }
+
+.saleBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  color: white;
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.saleInfo {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.saleCategory {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #1ECFC8;
+}
+
+.saleName {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111111;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.saleName:hover { color: #1ECFC8; }
+
+.salePriceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.salePrice {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.saleOriginal {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(17, 17, 17, 0.3);
+  text-decoration: line-through;
+}
+
+.saleAddBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  padding: 9px;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #111111;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 4px;
+}
+
+.saleAddBtn:hover { background: rgba(30, 207, 200, 0.1); color: #1ECFC8; }
+
+.saleAdded {
+  background: rgba(34, 197, 94, 0.1) !important;
+  color: #16a34a !important;
+}
+
+/* ── Shipping banner ── */
+.shippingBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 48px 0 64px;
+  padding: 32px 36px;
+  background: linear-gradient(135deg, #0a0a0a, #1a0a2e);
+  border-radius: 24px;
+  flex-wrap: wrap;
+}
+
+.shippingContent {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: 1;
+}
+
+.shippingIcon { color: #1ECFC8; flex-shrink: 0; }
+
+.shippingTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 4px;
+}
+
+.shippingText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .saleGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 120px 0 60px; }
+  .saleGrid { grid-template-columns: repeat(2, 1fr); }
+  .urgencyStrip { gap: 10px; }
+  .shippingBanner { padding: 24px 20px; }
+  .bundleCard { flex-direction: column; }
+  .carouselArrow { width: 32px; height: 32px; }
+}
+
+@media (max-width: 480px) {
+  .saleGrid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .heroTitle { font-size: 2.5rem; }
+}
+
+/* ── Loading skeletons ── */
+.skeletonTitle {
+  height: 64px;
+  width: 420px;
+  max-width: 100%;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+  margin: 0 0 16px;
+  animation: shimmer 1.4s infinite;
+}
+
+.skeletonText {
+  height: 20px;
+  width: 320px;
+  max-width: 100%;
+  background: rgba(255,255,255,0.06);
+  border-radius: 8px;
+  animation: shimmer 1.4s 0.2s infinite;
+}
+
+.skeletonGrid {
+  height: 240px;
+  margin: 32px 0;
+  background: rgba(0,0,0,0.04);
+  border-radius: 20px;
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ── Empty offers state ── */
+.emptyOffers {
+  text-align: center;
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.emptyIcon {
+  width: 64px;
+  height: 64px;
+  background: rgba(0,0,0,0.04);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(17,17,17,0.25);
+}
+
+.emptyTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.emptyText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  color: rgba(17,17,17,0.45);
+  margin: 0;
+}
+
+/* ── Coupon min-order hint ── */
+.couponMin {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 8px;
+  position: relative;
+}

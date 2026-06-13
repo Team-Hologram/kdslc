@@ -1,0 +1,302 @@
+.page {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #FDFCFB 0%, #F0EAFF 50%, #E8F7F7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 61, 255, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30, 207, 200, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 28px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.04);
+  padding: 48px 40px;
+  z-index: 1;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.logoIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #111111;
+}
+
+.heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+
+.headingAccent {
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.subtext {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  color: rgba(17, 17, 17, 0.45);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* Google Button */
+.googleBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111111;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.googleBtn:hover {
+  background: white;
+  border-color: rgba(30, 207, 200, 0.3);
+  box-shadow: 0 4px 16px rgba(30, 207, 200, 0.1);
+  transform: translateY(-1px);
+}
+
+.googleBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.googleIcon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.dividerText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.3);
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.input {
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  color: #111111;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.input::placeholder {
+  color: rgba(17, 17, 17, 0.25);
+}
+
+.input:focus {
+  border-color: rgba(30, 207, 200, 0.45);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(30, 207, 200, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.input.inputError {
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.08);
+}
+
+/* Error message */
+.errorMsg {
+  padding: 12px 16px;
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: #dc2626;
+  text-align: center;
+}
+
+/* Success message */
+.successMsg {
+  padding: 12px 16px;
+  background: rgba(30, 207, 200, 0.06);
+  border: 1px solid rgba(30, 207, 200, 0.2);
+  border-radius: 10px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: #1ECFC8;
+  text-align: center;
+}
+
+/* Submit button */
+.submitBtn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitBtn::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(135deg, #15a8a2, #6B2FCC);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.submitBtn:hover::before { opacity: 1; }
+.submitBtn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(139, 61, 255, 0.35); }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.submitBtnText {
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer link */
+.footerText {
+  text-align: center;
+  margin-top: 24px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.footerLink {
+  color: #1ECFC8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footerLink:hover { color: #8B3DFF; }
+
+@media (max-width: 480px) {
+  .card { padding: 32px 24px; border-radius: 20px; }
+  .heading { font-size: 24px; }
+}

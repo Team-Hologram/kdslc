@@ -1,0 +1,121 @@
+.section {
+  padding: 120px 0;
+  background: linear-gradient(180deg, #EDE9E4 0%, #F5F2EF 100%);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.1;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: rgba(17, 17, 17, 0.45);
+  font-weight: 300;
+  max-width: 400px;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  height: 600px;
+}
+
+.cellCol {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+
+.cell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #dedad5;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.cell:hover .img {
+  transform: scale(1.06);
+}
+
+.cell:hover .cellOverlay {
+  background: linear-gradient(180deg, transparent 20%, rgba(0, 0, 0, 0.65) 100%);
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cellOverlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.5) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  transition: background 0.4s ease;
+  z-index: 1;
+}
+
+.cellLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1ECFC8;
+  margin-bottom: 4px;
+}
+
+.cellName {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  .cellLarge { height: 360px; }
+  .cellSmall { height: 220px; }
+  .cellCol {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "name": "kdsl-clothing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "storage:migrate-products": "node scripts/migrate-product-images-to-storage.mjs",
+    "storage:normalize-product-folders": "node scripts/normalize-product-image-folders.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.10.3",
+    "@supabase/supabase-js": "^2.107.0",
+    "bcryptjs": "^3.0.3",
+    "framer-motion": "^12.40.0",
+    "jose": "^6.2.3",
+    "lucide-react": "^1.17.0",
+    "next": "16.2.7",
+    "otplib": "^11.0.1",
+    "qrcode": "^1.5.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "recharts": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.7",
+    "typescript": "^5"
+  },
+  /*
+   * Configure the browsers we target when compiling the application. Without a
+   * `browserslist` field, Next.js defaults to modern browsers, which can
+   * exclude legacy Safari releases. iOS devices running versions prior to
+   * iOS 16 may lack support for features like optional chaining and class
+   * fields. The following list ensures code is compiled down for Safari 12+
+   * and iOS Safari 12+, while still supporting a broad range of browsers
+   * worldwide. See the Next.js documentation for details on polyfills and
+   * supported browsers【754415679369115†L552-L573】.
+   */
+  "browserslist": [
+    "last 2 versions",
+    ">= 0.5%",
+    "iOS >= 12",
+    "Safari >= 12",
+    "not dead"
+  ]
+}

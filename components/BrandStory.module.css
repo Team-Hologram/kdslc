@@ -1,0 +1,201 @@
+.section {
+  padding: 120px 0;
+  background: #FAFAF8;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: center;
+}
+
+/* Image Side */
+.imageSide {
+  position: relative;
+}
+
+.imageMain {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #e8e4df;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+@supports not (aspect-ratio: 4 / 5) {
+  .imageMain::before {
+    content: '';
+    display: block;
+    padding-top: 125%;
+  }
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.imageMain:hover .img {
+  transform: scale(1.04);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 207, 200, 0.06) 0%,
+    transparent 50%,
+    rgba(139, 61, 255, 0.06) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Glass Accent Card */
+.accentCard {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  width: 152px;
+  height: 152px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-align: center;
+  padding: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.accentYear {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.35);
+}
+
+.accentNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.accentText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(17, 17, 17, 0.3);
+  text-align: center;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* Text Side */
+.textSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 3.5vw, 48px);
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.15;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.body {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(17, 17, 17, 0.5);
+  margin-bottom: 18px;
+}
+
+/* Glass Values Block */
+.values {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 28px 0 40px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+}
+
+.value {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.valueIcon {
+  font-size: 8px;
+  color: #1ECFC8;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.valueLabel {
+  display: block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+  letter-spacing: 0.03em;
+  margin-bottom: 2px;
+}
+
+.valueDesc {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .accentCard {
+    right: 12px;
+    bottom: -18px;
+    width: 120px;
+    height: 120px;
+  }
+  .accentNum { font-size: 30px; }
+  .imageSide { margin-bottom: 24px; }
+}

@@ -1,0 +1,551 @@
+/* ===================================================
+   NAVBAR WRAPPER — fixed full-width strip at top
+   We use padding here so the pill "floats" inside it.
+   Chrome fix: explicit left/right margins on .navbar
+   instead of relying on parent padding alone.
+=================================================== */
+.navWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 24px 0;
+  pointer-events: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ===================================================
+   THE PILL — max-width pill floating in the wrapper
+   Cross-browser: explicit margin replaces wrapper padding
+   so Chrome & Firefox behave identically to Safari.
+=================================================== */
+.navbar {
+  width: 100%;
+  max-width: 1080px;
+  pointer-events: all;
+  flex-shrink: 1;
+
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    0 6px 28px rgba(0, 0, 0, 0.07);
+
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* Scrolled state — more opaque glass */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: saturate(200%) blur(32px);
+  backdrop-filter: saturate(200%) blur(32px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 12px 48px rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.97);
+}
+
+/* Inner row */
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 10px 14px 10px 14px;
+}
+
+/* ===== LOGO ===== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+  transition: opacity 0.3s ease;
+}
+
+.logo:hover { opacity: 0.8; }
+
+.logo img { border-radius: 8px; }
+
+.logoText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== NAV LINKS ===== */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  list-style: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.link {
+  position: relative;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: rgba(17, 17, 17, 0.6);
+  transition: color 0.25s ease;
+  padding-bottom: 2px;
+}
+
+.link:hover { color: #111111; }
+
+.linkUnderline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, #1ECFC8, #8B3DFF);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.link:hover .linkUnderline { width: 100%; }
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(17, 17, 17, 0.55);
+  border-radius: 50%;
+  transition: all 0.25s ease;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  /* Fixes Chrome making text-based icons render differently */
+  -webkit-font-smoothing: antialiased;
+}
+
+.iconBtn:hover {
+  color: #111111;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.cartBadge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  border-radius: 50%;
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  /* Prevents badge from being blurry on Chrome */
+  -webkit-font-smoothing: antialiased;
+}
+
+.shopBtn {
+  font-size: 11px !important;
+  padding: 9px 20px !important;
+  border-radius: 100px !important;
+}
+
+/* Sign-in pill button (shown inside navbar when logged out) */
+.signInBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  border-radius: 100px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(17, 17, 17, 0.7);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.signInBtn:hover {
+  background: white;
+  border-color: rgba(30, 207, 200, 0.3);
+  color: #1ECFC8;
+}
+
+@media (max-width: 480px) {
+  .signInBtn {
+    display: none;
+  }
+}
+
+.mobileLinkBtn {
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.mobileMenuCheckbox {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menuBtn {
+  display: none;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.25s ease;
+  pointer-events: all;
+  touch-action: manipulation;
+}
+
+.menuBtn:hover { background: rgba(0, 0, 0, 0.05); }
+
+/* ===== MOBILE MENU ===== */
+.mobileOverlay {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 6500;
+  pointer-events: all;
+  animation: fadeIn 0.3s ease;
+}
+
+.mobileOverlayOpen,
+.mobileMenuCheckbox:checked ~ .mobileOverlay {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  height: 100vh;
+  pointer-events: all;
+  background: var(--white-warm);
+  border-left: 1px solid rgba(255, 255, 255, 0.92);
+  padding: 24px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 7000;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+.mobileMenuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.mobileMenuOpen {
+  transform: translateX(0);
+}
+
+.mobileMenuCheckbox:checked ~ .mobileMenu {
+  transform: translateX(0);
+}
+
+.mobileLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+
+.mobileLink {
+  display: block;
+  padding: 13px 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(17, 17, 17, 0.65);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: color 0.3s ease;
+}
+
+.mobileLink:hover { color: #1ECFC8; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .links,
+  .shopBtn {
+    display: none;
+  }
+
+  .menuBtn {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+
+  .navWrapper {
+    padding: 14px 16px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoText {
+    font-size: 13px; /* Slightly smaller to fit icons */
+  }
+  .inner {
+    gap: 12px;
+  }
+}
+
+/* ===================================================
+   FLOATING AVATAR — lives outside the pill
+=================================================== */
+.avatarFloat {
+  position: relative;
+  pointer-events: all;
+  flex-shrink: 0;
+}
+
+.avatarBtn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* White outline ring */
+  border: 2.5px solid rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.08),
+    0 6px 20px rgba(139, 61, 255, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.avatarBtn:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 0 4px rgba(255, 255, 255, 0.7),
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 8px 28px rgba(139, 61, 255, 0.35);
+}
+
+.avatarBtn:active { transform: scale(0.97); }
+
+.avatarInitial {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ===================================================
+   DROPDOWN CARD
+=================================================== */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 240px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  animation: dropdownIn 0.18s ease;
+  z-index: 200;
+}
+
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Header with avatar + name/email */
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 14px;
+}
+
+.dropdownAvatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+}
+
+.dropdownInfo {
+  overflow: hidden;
+}
+
+.dropdownName {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #111111;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 0 2px;
+}
+
+.dropdownEmail {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  color: rgba(17, 17, 17, 0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.dropdownDivider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 0;
+}
+
+/* Menu items */
+.dropdownMenu {
+  padding: 6px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(17, 17, 17, 0.75);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background: rgba(30, 207, 200, 0.07);
+  color: #1ECFC8;
+}
+
+/* Sign Out button */
+.dropdownSignOut {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(239, 68, 68, 0.8);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-align: left;
+}
+
+.dropdownSignOut:hover {
+  background: rgba(239, 68, 68, 0.05);
+  color: #ef4444;
+}
+
+/* Avatar float remains visible on all screens as requested by user */
+
+/* ── Offers link ── */
+.offersLink {
+  color: #1ECFC8 !important;
+  font-weight: 700 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.offersLink:hover { color: #8B3DFF !important; }
+
+.offersIcon { flex-shrink: 0; }

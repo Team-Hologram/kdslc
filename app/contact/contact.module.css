@@ -1,0 +1,316 @@
+.main {
+  background: #FAFAF8;
+  min-height: 100vh;
+}
+
+.hero {
+  position: relative;
+  padding: 160px 0 80px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #FDFCFB 0%, #F0EAFF 50%, #E8F7F7 100%);
+}
+
+.heroBg {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(30, 207, 200, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(139, 61, 255, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(44px, 6vw, 88px);
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.05;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.heroSub {
+  font-size: 15px;
+  color: rgba(17, 17, 17, 0.45);
+  font-weight: 300;
+  max-width: 440px;
+  line-height: 1.7;
+}
+
+/* Content */
+.content {
+  padding: 0 0 100px;
+  background: #F5F3F0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Info Side — Glass Card */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 36px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07);
+  position: sticky;
+  top: 110px;
+}
+
+.infoTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.contactItems {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contactIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(30, 207, 200, 0.08), rgba(139, 61, 255, 0.08));
+  border: 1px solid rgba(30, 207, 200, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1ECFC8;
+  flex-shrink: 0;
+}
+
+.contactLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.35);
+  margin-bottom: 2px;
+}
+
+.contactValue {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(17, 17, 17, 0.7);
+}
+
+/* Social */
+.socialSection {
+  padding-top: 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.socialTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.35);
+  margin-bottom: 12px;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  color: rgba(17, 17, 17, 0.5);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.socialBtn:hover {
+  background: rgba(30, 207, 200, 0.05);
+  border-color: rgba(30, 207, 200, 0.2);
+  color: #1ECFC8;
+}
+
+/* Hours */
+.hours {
+  padding-top: 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hoursTitle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.35);
+  margin-bottom: 10px;
+}
+
+.hoursText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: rgba(17, 17, 17, 0.4);
+  margin-bottom: 5px;
+}
+
+/* Form */
+.formSection {
+  padding-top: 8px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.formTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #111111;
+  margin-bottom: 4px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+.input {
+  padding: 13px 16px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  color: #111111;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.input::placeholder {
+  color: rgba(17, 17, 17, 0.25);
+}
+
+.input:focus {
+  border-color: rgba(30, 207, 200, 0.4);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 3px rgba(30, 207, 200, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Success */
+.successMsg {
+  padding: 56px 40px;
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(30, 207, 200, 0.15);
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.successIcon {
+  font-size: 36px;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.successTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #111111;
+}
+
+.successText {
+  font-size: 14px;
+  color: rgba(17, 17, 17, 0.45);
+  max-width: 300px;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; gap: 36px; }
+  .info { position: static; }
+  .formRow { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 110px 0 48px; }
+  .heroSub { font-size: 14px; }
+  .content { padding: 0 0 60px; }
+  .info { padding: 22px 18px; border-radius: 18px; }
+  .infoTitle { font-size: 20px; }
+  .formTitle { font-size: 22px; }
+  .successMsg { padding: 40px 24px; border-radius: 18px; }
+}

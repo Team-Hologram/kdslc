@@ -1,0 +1,417 @@
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 6000;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 112px 24px 24px;
+  animation: overlayIn 0.3s ease;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal */
+.modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  max-width: 860px;
+  max-height: calc(100vh - 136px);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: modalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.92) translateY(16px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Close Button — now inside imageSide, anchored to image top-right */
+.closeBtn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  color: rgba(17, 17, 17, 0.65);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.closeBtn:hover {
+  background: white;
+  color: #111111;
+  transform: rotate(90deg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+}
+
+/* Image Side */
+.imageSide {
+  position: relative;
+  min-height: 500px;
+  background: #e8e4df;
+  overflow: hidden;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.imageSide:hover .img {
+  transform: scale(1.04);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(30, 207, 200, 0.04) 0%,
+    transparent 50%,
+    rgba(139, 61, 255, 0.04) 100%
+  );
+  pointer-events: none;
+}
+
+.tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #111111;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Info Side */
+.infoSide {
+  padding: 32px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.infoSide::-webkit-scrollbar { width: 4px; }
+.infoSide::-webkit-scrollbar-thumb { background: linear-gradient(#1ECFC8, #8B3DFF); border-radius: 2px; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.category {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1ECFC8;
+}
+
+.wishBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 50%;
+  color: rgba(17, 17, 17, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wishBtnActive {
+  background: rgba(255, 80, 80, 0.08);
+  border-color: rgba(255, 80, 80, 0.2);
+  color: #ff4444;
+}
+
+.wishBtn:hover {
+  border-color: rgba(255, 80, 80, 0.3);
+  color: #ff4444;
+}
+
+.name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.2;
+  margin-top: -4px;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.reviewCount {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  color: rgba(17, 17, 17, 0.4);
+}
+
+.price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.priceOriginal {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: rgba(17, 17, 17, 0.35);
+  text-decoration: line-through;
+}
+
+.description {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(17, 17, 17, 0.55);
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Options */
+.optionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.optionLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.5);
+}
+
+.optionValue {
+  font-weight: 400;
+  text-transform: none;
+  color: rgba(17, 17, 17, 0.72);
+  letter-spacing: 0;
+}
+
+/* Colors */
+.colorSwatches {
+  display: flex;
+  gap: 8px;
+}
+
+.colorSwatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  outline: none;
+  /* Subtle ring on all swatches to define boundary */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07);
+}
+
+/* White / very light swatches: show a clear grey border so they're visible on white bg */
+.swatchLight {
+  box-shadow:
+    inset 0 0 0 1.5px rgba(0, 0, 0, 0.18),
+    0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.swatchActive::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid #111111;
+  box-shadow: 0 0 0 2px rgba(30, 207, 200, 0.45);
+}
+
+/* Sizes */
+.sizes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sizeBtn {
+  min-width: 40px;
+  height: 36px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(17, 17, 17, 0.55);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sizeBtnActive {
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(30, 207, 200, 0.24);
+}
+
+.sizeBtn:hover:not(.sizeBtnActive) {
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #111111;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.addCartBtn {
+  flex: 1;
+  justify-content: center;
+  min-width: 160px;
+}
+
+.addedBtn {
+  background: linear-gradient(135deg, #1ECFC8, #1ECFC8) !important;
+}
+
+/* Details */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.detailItem {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(17, 17, 17, 0.5);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.detailDot {
+  font-size: 8px;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 700px) {
+  .overlay {
+    align-items: flex-start;
+    padding: 86px 12px 12px;
+  }
+
+  .modal {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(0, 1fr);
+    max-height: calc(100vh - 98px);
+    border-radius: 20px;
+  }
+
+  .imageSide {
+    min-height: 220px;
+    height: 34vh;
+  }
+
+  .infoSide {
+    padding: 20px;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 78px 10px 10px;
+  }
+
+  .modal {
+    max-height: calc(100vh - 88px);
+  }
+
+  .imageSide {
+    min-height: 200px;
+    height: 32vh;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .addCartBtn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,273 @@
+.main {
+  background: #FAFAF8;
+  min-height: 100vh;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  padding: 160px 0 100px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #FDFCFB 0%, #F0EAFF 50%, #E8F7F7 100%);
+}
+
+.heroBg {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(30, 207, 200, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 50%, rgba(139, 61, 255, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(36px, 6vw, 80px);
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.1;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+}
+
+.heroSubtitle {
+  font-size: 17px;
+  color: rgba(17, 17, 17, 0.5);
+  font-weight: 300;
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* Story */
+.story {
+  padding: 80px 0 120px;
+  background: #F5F3F0;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.storyImage {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #dedad5;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+@supports not (aspect-ratio: 4 / 5) {
+  .storyImage::before {
+    content: '';
+    display: block;
+    padding-top: 125%;
+  }
+}
+
+.img { object-fit: cover; }
+
+.storyImageOverlay {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  background: linear-gradient(135deg, rgba(30, 207, 200, 0.05), rgba(139, 61, 255, 0.06));
+  pointer-events: none;
+}
+
+.storyText {
+  display: flex;
+  flex-direction: column;
+}
+
+.storyTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.15;
+  margin-top: 8px;
+  margin-bottom: 24px;
+}
+
+.storyBody {
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.85;
+  color: rgba(17, 17, 17, 0.5);
+  margin-bottom: 18px;
+}
+
+/* Values */
+.valuesSection {
+  padding: 100px 0;
+  background: #FAFAF8;
+}
+
+.valuesHeader {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.valuesTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700;
+  color: #111111;
+  margin-top: 8px;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Glass Value Cards */
+.valueCard {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.valueCard:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+}
+
+.valueIcon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(30, 207, 200, 0.1), rgba(139, 61, 255, 0.1));
+  border: 1px solid rgba(30, 207, 200, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1ECFC8;
+}
+
+.valueTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.valueDesc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(17, 17, 17, 0.45);
+}
+
+/* Stats Banner — Glass */
+.statsBanner {
+  padding: 56px 0;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.statValue {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  background: linear-gradient(135deg, #1ECFC8, #8B3DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.statLabel {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(17, 17, 17, 0.35);
+}
+
+/* Lookbook Teaser */
+.lookbookTeaser {
+  padding: 80px 0;
+  background: #F5F3F0;
+}
+
+.lookbookGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  height: 400px;
+}
+
+.lookbookImg {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #dedad5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.lookbookImg:hover .img { transform: scale(1.06); }
+.lookbookImg .img {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+@media (max-width: 900px) {
+  .storyGrid { grid-template-columns: 1fr; gap: 48px; }
+  .valuesGrid { grid-template-columns: 1fr; }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .lookbookGrid { grid-template-columns: 1fr; height: auto; }
+  .lookbookImg { height: 280px; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 110px 0 56px; }
+  .heroSubtitle { font-size: 15px; }
+  .story { padding: 56px 0 80px; }
+  .storyGrid { gap: 32px; }
+  .valuesSection { padding: 64px 0; }
+  .valuesGrid { grid-template-columns: 1fr; }
+  .valueCard { padding: 24px; }
+  .statsBanner { padding: 40px 0; }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .lookbookTeaser { padding: 56px 0; }
+  .lookbookGrid { gap: 10px; }
+  .lookbookImg { height: 220px; }
+}
